@@ -30,9 +30,9 @@ def estimate_pdf(data, x_range=(0, 1), nbins=10000, is_norm=True):
     return x_kde, y_kde
 
 
-def plot_distribution(x, y, color='blue', alpha='0.5', label=None):
+def plot_distribution(x, y, color='blue', alpha=0.5, label=None):
     plt.plot(x, y, color=color, label=label)
-    plt.fill_between(x, y, color=color, alpha='0.5')
+    plt.fill_between(x, y, color=color, alpha=alpha)
 
 
 def plot_confusion_table(y, y_, classes):

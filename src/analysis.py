@@ -13,7 +13,8 @@ from track_identifier.utils import features, vis, misc
 
 from sklearn import ensemble, preprocessing, metrics
 from sklearn.metrics import confusion_matrix
-from sklearn.externals import joblib 
+# from sklearn.externals import joblib 
+import joblib
 
 
 # feature name
@@ -155,7 +156,7 @@ def proc(features_dir, result_dir, model_dir, model_name):
                 x_est, 
                 y_est, 
                 color=INSTR_COLOR[instr_idx], 
-                alpha='0.3', 
+                alpha=0.3, 
                 label=INSTR_CLASS[instr_idx])
             
         plt.title(FEATURE_NAMES[feature_idx])
@@ -169,7 +170,7 @@ if __name__ == '__main__':
     features_dir = '../data/features'
     result_dir = '../doc'
     model_dir = '../track_identifier/model'
-    model_name =  '2019-6-24.pkl'
+    model_name =  '2022-6-10.pkl'
 
     # processing
     start_time = time.time()

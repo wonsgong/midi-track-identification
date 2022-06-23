@@ -3,6 +3,7 @@ import time
 import argparse
 import datetime
 import numpy as np
+from tqdm import tqdm
 
 import sys
 sys.path.append('../')
@@ -28,7 +29,7 @@ def proc(tracks_dir, output_dir):
     #    print(idx, file) 
 
     num_file = len(file_list)
-    for fidx in range(num_file):
+    for fidx in tqdm(range(num_file)):
         filename = file_list[fidx]
         print('[{}/{}] {}'.format(fidx, num_file, filename), end='\r')
         
@@ -37,7 +38,8 @@ def proc(tracks_dir, output_dir):
         label = entry['y']
         
         # feature extraction
-        X = features.extract_features(track.item().pianoroll)
+        # X = features.extract_features(track.item().pianoroll)
+        X = features.extract_features(track)
         
         # save
         label = label.item()
